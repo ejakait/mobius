@@ -1,0 +1,11 @@
+site_name: mobius_api
+site_description: mutual fund execution platform
+repo_url: https://github.com/ejakait/mobius
+site_dir: site
+copyright: Copyright &copy; 2015, <a href="https://github.com/ejakait">ejakait</a>.
+
+pages:
+  - Home: 'index.md'
+  - API:
+    - Authentication: 'api/authentication.md'
+    - Users: 'api/users.md'
