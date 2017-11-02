@@ -27,6 +27,7 @@ class Common(Configuration):
         'authentication',
         'users',
         'funds',
+        'transactions',
 
     )
 
