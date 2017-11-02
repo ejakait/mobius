@@ -34,10 +34,6 @@ class Transaction(models.Model):
         ('R', 'Redemption'),
         ('A', 'Additional Purchase'),
     )
-    ORDERTYPE = (
-        ('1', 'Lumpsum'),
-        ('2', 'SIP'),
-    )
 
     user = models.ForeignKey(Info,
                              on_delete=models.PROTECT,
@@ -50,8 +46,6 @@ class Transaction(models.Model):
 
     transaction_type = models.CharField(
         max_length=1, blank=False, choices=TRANSACTIONTYPE, default='P')  # purchase redemption etc
-    order_type = models.CharField(
-        max_length=1, blank=False, choices=ORDERTYPE, default='1')  # lumpsum or sip
 
     # track status of transaction and comments if any from bse or rta
     status = models.CharField(max_length=1, choices=STATUS, default='0')
