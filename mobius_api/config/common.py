@@ -9,6 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class Common(Configuration):
 
     INSTALLED_APPS = (
+        'suit',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -53,6 +54,37 @@ class Common(Configuration):
     ADMINS = (
         ('Author', 'ejakaitcaleb@gmail.com'),
     )
+    SUIT_CONFIG = {
+        # header
+        'ADMIN_NAME': 'Z-CASH',
+        'HEADER_DATE_FORMAT': 'l, j. F Y',
+        'HEADER_TIME_FORMAT': 'H:i',
+
+        # forms
+        # 'SHOW_REQUIRED_ASTERISK': True,  # Default True
+        # 'CONFIRM_UNSAVED_CHANGES': True, # Default True
+
+        # menu
+        # 'SEARCH_URL': '/admin/auth/user/',
+        'MENU_ICONS': {
+            'sites': 'icon-leaf',
+            'auth': 'icon-lock',
+        },
+        'MENU_OPEN_FIRST_CHILD': True,  # Default True
+        'MENU_EXCLUDE': ('auth.group',),
+        'MENU': (
+            'sites',
+            {'app': 'funds', 'label': 'Investment Funds', 'icon': 'icon-lock'},
+            {'app': 'users', 'icon': 'icon-user'},
+
+            {'label': 'Settings', 'icon': 'icon-cog',
+                'models': ('auth.user', 'auth.group')},
+            {'label': 'Support', 'icon': 'icon-question-sign', 'url': '/support/'},
+        ),
+
+        # misc
+        'LIST_PER_PAGE': 15
+    }
 
     # Postgres
     # DATABASES = values.DatabaseURLValue('postgres://localhost/mobius_api')
@@ -100,7 +132,9 @@ class Common(Configuration):
                     'django.template.context_processors.media',
                     'django.template.context_processors.static',
                     'django.template.context_processors.tz',
-                    'django.contrib.messages.context_processors.messages'
+                    'django.contrib.messages.context_processors.messages',
+                    'django.template.context_processors.request',  # Make sure you have this line
+
                 ],
                 'loaders':[
                     ('django.template.loaders.cached.Loader', [
