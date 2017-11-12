@@ -7,7 +7,6 @@ from django.db import models
 
 from funds.models import SchemePlan
 from users.models import Info
-
 # Create your models here.
 
 
