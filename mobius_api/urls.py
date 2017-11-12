@@ -10,7 +10,7 @@ from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
 from users.views import UserViewSet
-# from users.views import RegistrationView 
+from users import views as user_views
 
 
 router = DefaultRouter()
@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^api/v1/', include('authentication.urls')),
     url(r'^api/v1/', include(router.urls)),
     url(r'^', include('funds.urls')),
-    # url(r'^signup/$', RegistrationView.as_view(), name='signup'),
+    url(r'^signup/$', user_views.signup, name='signup'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
 
