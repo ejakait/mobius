@@ -1,5 +1,4 @@
 {% load static %}
-{% block content %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,40 +29,8 @@
           <h3>Create Account<br>Make Profits</h3>
         </header>
       </div>
-      <form method="post">{% csrf_token %}     
-      <div class="col-md-6 right-side">
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" value=" {{ username }} " id="username" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="name">
-            <span class="input__label-content input__label-content--hoshi">Username</span>
-          </label>
-        </span>
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" value="{{ email }}" id="email" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="email">
-            <span class="input__label-content input__label-content--hoshi">E-mail</span>
-          </label>
-        </span>
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="password" value="{{ password }}" id="password" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="password">
-            <span class="input__label-content input__label-content--hoshi">Password</span>
-          </label>
-        </span>
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="password" value="{{ passord1 }}" id="password1" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="password1">
-            <span class="input__label-content input__label-content--hoshi">Repeat Password</span>
-          </label>
-        </span>
-        <div class="cta">
-          <button class="btn btn-primary pull-left" type="submit">
-            Sign-Up Now
-          </button>
-          <span><a href="#">I am already a member</a></span>
-        </div>
-        </form>
-    
+      {% block content %}
+      {% endblock %}
         <ul class="social list-inline">
           <li><a href="#">Facebook</a></li>
           <li><a href="#">Twitter</a></li>
@@ -118,4 +85,3 @@
 </body>
 </html>
             
-{% endblock %}

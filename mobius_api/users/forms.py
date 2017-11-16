@@ -11,6 +11,8 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(
+        max_length=254, help_text='Required. Inform a valid email address.')
 
     # http://james.lin.net.nz/2013/06/08/django-custom-user-model-in-admin-relation-auth_user-does-not-exist/
     def clean_username(self):
@@ -25,3 +27,4 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username', 'email', 'password1', 'password2', )

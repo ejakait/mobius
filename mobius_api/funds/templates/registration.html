@@ -1,0 +1,40 @@
+{% extends "signup.html" %} 
+
+{% load widget_tweaks %} 
+{% block content %}
+<form method="post">{% csrf_token %}
+    <div class="col-md-6 right-side">
+        <span class="input input--hoshi">
+            {{ form.username|add_class:"input__field input__field--hoshi" }}
+            <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="username">
+                <span class="input__label-content input__label-content--hoshi">Username</span>
+            </label>
+        </span>
+        <span class="input input--hoshi">
+            {{ form.email|add_class:"input__field input__field--hoshi" }}
+            <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="email">
+                <span class="input__label-content input__label-content--hoshi">Email</span>
+            </label>
+        </span>
+        <span class="input input--hoshi">
+            {{ form.password1|add_class:"input__field input__field--hoshi"}}
+            <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="username">
+                <span class="input__label-content input__label-content--hoshi">Password</span>
+            </label>
+        </span>
+        <span class="input input--hoshi">
+            {{ form.password2|add_class:"input__field input__field--hoshi" }}
+            <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="username">
+                <span class="input__label-content input__label-content--hoshi">Repeat Password</span>
+            </label>
+        </span>
+        <div class="cta">
+            <button class="btn btn-primary pull-left" type="submit">
+                Sign-Up Now
+            </button>
+            <span>
+                <a href="#">I am already a member</a>
+            </span>
+        </div>
+</form>
+{% endblock %}

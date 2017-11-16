@@ -12,6 +12,7 @@ class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     national_id = models.CharField(max_length=15, blank=True, null=False)
     phone = models.CharField(max_length=12, default='')
+    email = models.EmailField()
 
     def __str__(self):
         return self.username

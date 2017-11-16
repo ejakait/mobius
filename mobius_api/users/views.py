@@ -40,4 +40,4 @@ def signup(request):
             return redirect('home')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'registration.html', {'form': form})
