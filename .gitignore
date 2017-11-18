@@ -6,6 +6,7 @@ htmlcov/
 coverage/
 .coverage
 .tox
+.env
 nosetests.xml
 build/
 dist/
