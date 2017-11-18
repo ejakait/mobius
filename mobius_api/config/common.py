@@ -76,8 +76,10 @@ class Common(Configuration):
         'MENU_EXCLUDE': ('auth.group',),
         'MENU': (
             'sites',
-            {'app': 'funds', 'label': 'Investment Funds', 'icon': 'icon-lock'},
+            {'app': 'funds', 'label': 'Investment Funds', 'icon': 'icon-leaf'},
             {'app': 'users', 'icon': 'icon-user'},
+            {'app': 'transactions','label':'Transactions', 'icon': 'icon-resize-small'},
+
 
             {'label': 'Settings', 'icon': 'icon-cog',
                 'models': ('auth.user', 'auth.group')},
