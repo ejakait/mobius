@@ -23,6 +23,7 @@ class Common(Configuration):
         'rest_framework.authtoken',  # token authentication
         'django_rq',                 # asynchronous queuing
         'versatileimagefield',       # image manipulation
+        'widget_tweaks',
 
         # Your apps
         'authentication',
@@ -40,7 +41,8 @@ class Common(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'django.middleware.security.SecurityMiddleware'
+        'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware'
     )
 
     ROOT_URLCONF = 'urls'
@@ -74,8 +76,10 @@ class Common(Configuration):
         'MENU_EXCLUDE': ('auth.group',),
         'MENU': (
             'sites',
-            {'app': 'funds', 'label': 'Investment Funds', 'icon': 'icon-lock'},
+            {'app': 'funds', 'label': 'Investment Funds', 'icon': 'icon-leaf'},
             {'app': 'users', 'icon': 'icon-user'},
+            {'app': 'transactions','label':'Transactions', 'icon': 'icon-resize-small'},
+
 
             {'label': 'Settings', 'icon': 'icon-cog',
                 'models': ('auth.user', 'auth.group')},
@@ -115,6 +119,7 @@ class Common(Configuration):
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     # Media files
     MEDIA_ROOT = join(os.path.dirname(BASE_DIR), 'media')
