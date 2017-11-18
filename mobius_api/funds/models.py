@@ -25,6 +25,8 @@ class FundHouse(models.Model):
     phone = models.CharField(max_length=100, blank=True)
     fax = models.CharField(max_length=100, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Fund Houses"
 
 class FundCategory(models.Model):
     '''
@@ -33,6 +35,9 @@ class FundCategory(models.Model):
     '''
     name = models.CharField(max_length=100, unique=True, blank=True)
     num_funds = models.IntegerField(null=True)
+
+    class Meta:
+        verbose_name_plural = "Fund Categories"
 
 
 class FundScheme(models.Model):
@@ -51,6 +56,9 @@ class FundScheme(models.Model):
     aum = models.FloatField(blank=True, null=True)  # in Rs cr
     aum_date = models.DateField(
         auto_now=False, auto_now_add=False, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Fund Schemes"
 
 
 class SchemePlan(models.Model):
@@ -95,6 +103,9 @@ class SchemePlan(models.Model):
     # dividend details
     dividend_history = models.CharField(max_length=1000, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Scheme Plans"
+
 
 class AssetPortfolio(models.Model):
     '''
@@ -113,3 +124,6 @@ class AssetPortfolio(models.Model):
     equity_pc = models.FloatField(default=0)
     cash_pc = models.FloatField(default=0)
     other_pc = models.FloatField(default=0)
+    
+    class Meta:
+        verbose_name_plural = "Asset Portfolios"
